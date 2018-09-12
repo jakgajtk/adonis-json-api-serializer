@@ -72,7 +72,7 @@ class JsonApiSpecification {
     }
     if (doResourceObject) {
       const content = response.lazyBody.content;
-      if (content && content.hasOwnProperty('links') && content.links.hasOwnProperty('self')) {
+      if (content && content.links && content.hasOwnProperty('links') && content.links.self && content.links.hasOwnProperty('self')) {
         const parsedUrl = url.parse(content.links.self);
         if (parsedUrl.host) {
           content.links.self =
